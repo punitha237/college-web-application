@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official Portal & College Management System for PSG College of Arts and Science, Coimbatore. Established 1947. Knowledge, Love and Work.">
+    <title>PSG College of Arts and Science | Portal & Management System</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Initialization Script -->
+    <script>
+        const savedTheme = localStorage.getItem('psg-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-area" id="nav-brand">
+                <!-- Custom SVG PSG College Logo -->
+                <svg class="college-logo" viewBox="0 0 100 100" width="55" height="55" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#F4D068" />
+                            <stop offset="100%" stop-color="#C5A059" />
+                        </linearGradient>
+                        <linearGradient id="maroon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#A82030" />
+                            <stop offset="100%" stop-color="#6F0C18" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Outer Circle -->
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="url(#gold-grad)" stroke-width="3"/>
+                    <!-- Shield Background -->
+                    <path d="M50 18 C65 18 73 24 73 24 V50 C73 66 50 82 50 82 C50 82 27 66 27 50 V24 C27 24 35 18 50 18 Z" fill="url(#maroon-grad)" stroke="url(#gold-grad)" stroke-width="2"/>
+                    <!-- Open Book -->
+                    <path d="M38 48 C43 45 50 48 50 48 C50 48 57 45 62 48 V38 C57 35 50 38 50 38 C50 38 43 35 38 38 Z" fill="#FFFFFF" stroke="url(#gold-grad)" stroke-width="1"/>
+                    <line x1="50" y1="38" x2="50" y2="48" stroke="url(#maroon-grad)" stroke-width="1.5"/>
+                    <!-- Burning Lamp / Torch of Knowledge -->
+                    <path d="M47 62 C47 62 44 58 47 55 C50 52 50 50 50 50 C50 50 50 52 53 55 C56 58 53 62 53 62 Z" fill="#FFA500"/>
+                    <path d="M44 65 H56 L53 62 H47 Z" fill="url(#gold-grad)"/>
+                    <path d="M48 65 L46 69 H54 L52 65 Z" fill="url(#gold-grad)"/>
+                    <!-- PSG Text inside shield -->
+                    <text x="50" y="32" font-family="'Outfit', sans-serif" font-size="9" font-weight="bold" fill="url(#gold-grad)" text-anchor="middle">PSG</text>
+                    <text x="50" y="76" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">ESTD 1947</text>
+                </svg>
+                <div class="logo-text">
+                    <span class="college-title">PSG College of Arts & Science</span>
+                    <span class="college-subtitle">Coimbatore (Autonomous) • NIRF Rank #11</span>
+                </div>
+            </a>
+            
+            <nav class="nav-links" id="nav-menu">
+                <a href="#hero" class="active" data-section="landing">Home</a>
+                <a href="#why-join" data-section="landing">Why Join</a>
+                <a href="#infrastructure" data-section="landing">Infrastructure</a>
+                <a href="#faculty" data-section="landing">Faculty</a>
+                <button class="btn btn-primary" id="btn-portal-toggle">Management Portal</button>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-btn" id="theme-toggle-btn" aria-label="Toggle dark/light theme">
+                    <!-- Sun Icon (Dark Mode active, click for light) -->
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon (Light Mode active, click for dark) -->
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <button class="hamburger" id="hamburger-menu" aria-label="Open navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Main Container -->
+    <main class="main-content-area">
+        
+        <!-- SECTION 1: PUBLIC LANDING PORTAL -->
+        <div id="landing-view" class="view-panel active">
+            
+            <!-- Hero Section -->
+            <section id="hero" class="hero-section">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <div class="badge">ESTABLISHED IN 1947</div>
+                    <h1 class="hero-title animate-pop">Igniting Minds, Empowering Futures</h1>
+                    <p class="hero-lead">Welcome to PSG College of Arts & Science, one of India's premier autonomous institutions. Cultivating academic excellence, social commitment, and holistic growth under the motto <strong>"Knowledge, Love and Work"</strong>.</p>
+                    <div class="hero-cta-group">
+                        <a href="#why-join" class="btn btn-outline">Explore Campus</a>
+                        <button class="btn btn-primary" onclick="app.showDashboard()">Access Dashboard</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <span class="stat-num">75+</span>
+                            <span class="stat-label">Years of Legacy</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">11th</span>
+                            <span class="stat-label">NIRF 2024 Rank</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">10,000+</span>
+                            <span class="stat-label">Active Students</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">87+</span>
+                            <span class="stat-label">Academic Depts</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Why Join Section -->
+            <section id="why-join" class="section-container why-join-section">
+                <div class="section-header">
+                    <span class="section-tagline">Why Join PSG CAS?</span>
+                    <h2 class="section-heading">A Legacy of Excellence & Innovation</h2>
+                    <p class="section-desc">We foster an ecosystem where academic rigour meets practical learning, preparing our graduates to lead in a changing global landscape.</p>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="why-card-title">Top-Tier NIRF Rankings</h3>
+                        <p class="why-card-text">Ranked 11th in the country by NIRF 2024, confirming our academic status as one of India's absolute finest colleges for Arts & Science.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <h3 class="why-card-title">Industry-Aligned Placements</h3>
+                        <p class="why-card-text">Direct collaborations with top multinational companies (MNCs), hosting annual recruitment drives yielding 95%+ placement rates.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="why-card-title">Holistic Global Exposure</h3>
+                        <p class="why-card-text">A multicultural campus environment coupled with international exchange programs, workshops, and cross-disciplinary research.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="why-card-title">Comprehensive Scholarship</h3>
+                        <p class="why-card-text">Generous aid from PSG & Sons' Charities alongside government grants, ensuring education remains accessible to all brilliant minds.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Infrastructure & Facilities Section -->
+            <section id="infrastructure" class="section-container infra-section">
+                <div class="section-header">
+                    <span class="section-tagline">Campus Ecosystem</span>
+                    <h2 class="section-heading">State-of-the-Art Infrastructure & Facilities</h2>
+                    <p class="section-desc">Discover the specialized research venues, resources, and student facilities that support a robust and thriving academic experience.</p>
+                </div>
+                <!-- Tabs & Search Controls -->
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="infra-search-input" placeholder="Search facilities (e.g. library, auditorium)...">
+                    </div>
+                    <div class="filter-tabs" id="infra-tabs">
+                        <button class="tab-btn active" data-filter="all">All Facilities</button>
+                        <button class="tab-btn" data-filter="academic">Academic</button>
+                        <button class="tab-btn" data-filter="residential">Residential & Dining</button>
+                        <button class="tab-btn" data-filter="support">Student Support</button>
+                    </div>
+                </div>
+                <!-- Facilities Grid -->
+                <div class="infra-grid" id="infra-container">
+                    <!-- Dynamic rendering in app.js -->
+                </div>
+            </section>
+            <!-- Faculty Section -->
+            <section id="faculty" class="section-container faculty-section">
+                <div class="section-header">
+                    <span class="section-tagline">Academic Mentorship</span>
+                    <h2 class="section-heading">Meet Our Renowned Faculty Members</h2>
+                    <p class="section-desc">Our guides are industry experts, active researchers, and dedicated educators committed to fueling student curiosity.</p>
+                </div>
+                <!-- Faculty Filter Controls -->
+                <div class="filter-controls">
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="faculty-search-input" placeholder="Search faculty by name, design, or research...">
+                    </div>
+                    <div class="filter-tabs" id="faculty-tabs">
+                        <button class="tab-btn active" data-filter="all">All Departments</button>
+                        <button class="tab-btn" data-filter="Computer Science">Computer Science</button>
+                        <button class="tab-btn" data-filter="Biotechnology">Biotechnology</button>
+                        <button class="tab-btn" data-filter="Commerce">Commerce</button>
+                        <button class="tab-btn" data-filter="Arts & Literature">Arts & Lit</button>
+                    </div>
+                </div>
+                <!-- Faculty Members Grid -->
+                <div class="faculty-grid" id="faculty-container">
+                    <!-- Dynamic rendering in app.js -->
+                </div>
+            </section>
+        </div>
+        <!-- SECTION 2: MANAGEMENT PORTAL DASHBOARD -->
+        <div id="dashboard-view" class="view-panel">
+            <div class="dashboard-layout">
+                <!-- Dashboard Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="sidebar-header">
+                        <div class="user-profile-summary">
+                            <div class="user-avatar" id="dashboard-user-avatar">S</div>
+                            <div class="user-info">
+                                <h4 class="user-name" id="dashboard-user-name">Sanjay Kumar R</h4>
+                                <span class="user-role-badge" id="dashboard-user-badge">Student</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Role Selector (Demonstration Switcher) -->
+                    <div class="role-switcher-panel">
+                        <label for="role-select">Access View As:</label>
+                        <select id="role-select" class="role-select-dropdown">
+                            <option value="student">Student Portal</option>
+                            <option value="faculty">Faculty Portal</option>
+                            <option value="admin">Administrator Portal</option>
+                        </select>
+                    </div>
+                    <nav class="sidebar-nav" id="sidebar-menu">
+                        <!-- Dynamic Sidebar Options relative to Role will be injected by app.js -->
+                    </nav>
+                    <div class="sidebar-footer">
+                        <button class="btn btn-outline btn-sm btn-full" id="btn-logout">Exit Dashboard</button>
+                    </div>
+                </aside>
+                <!-- Dashboard Main Dashboard Window -->
+                <div class="dashboard-main">
+                    <!-- Dashboard Top Header Bar -->
+                    <header class="dashboard-topbar">
+                        <div class="topbar-left">
+                            <h2 class="dashboard-title" id="dashboard-section-title">Dashboard Overview</h2>
+                            <p class="dashboard-subtitle" id="dashboard-section-subtitle">Welcome back, Sanjay. Here is your current academic status.</p>
+                        </div>
+                        <div class="topbar-right">
+                            <div class="live-date-time" id="live-clock">
+                                Loading local time...
+                            </div>
+                        </div>
+                    </header>
+                    <!-- Dynamic Role Views Panel (Student, Faculty, Admin) -->
+                    <div class="dashboard-content-window">
+                        
+                        <!-- 1. STUDENT VIEW PANEL -->
+                        <div id="panel-student" class="role-panel active">
+                            <!-- Metrics Cards -->
+                            <div class="metrics-grid">
+                                <div class="metric-card">
+                                    <div class="metric-icon val-attendance">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="metric-details">
+                                        <span class="metric-title">Overall Attendance</span>
+                                        <h3 class="metric-value">88.4%</h3>
+                                        <span class="metric-trend text-success">✓ Above Requirement (75%)</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon val-gpa">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                        </svg>
+                                    </div>
+                                    <div class="metric-details">
+                                        <span class="metric-title">Current CGPA</span>
+                                        <h3 class="metric-value">9.24 / 10</h3>
+                                        <span class="metric-trend text-primary">Class Rank: 4th</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon val-courses">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="metric-details">
+                                        <span class="metric-title">Registered Courses</span>
+                                        <h3 class="metric-value">6 Classes</h3>
+                                        <span class="metric-trend text-info">1 Audit Course</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Student Content Layout -->
+                            <div class="dashboard-grid-two">
+                                <!-- Registered Courses & Grades -->
+                                <div class="dashboard-widget">
+                                    <div class="widget-header">
+                                        <h3 class="widget-title">Registered Semester Courses & Timetable</h3>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="table-container">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Code</th>
+                                                        <th>Course Name</th>
+                                                        <th>Credits</th>
+                                                        <th>Attendance</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>22CSC01</strong></td>
+                                                        <td>Advanced Data Structures</td>
+                                                        <td>4</td>
+                                                        <td class="text-success">92%</td>
+                                                        <td><span class="badge badge-success">Active</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>22CSC02</strong></td>
+                                                        <td>Design & Analysis of Algorithms</td>
+                                                        <td>4</td>
+                                                        <td class="text-success">85%</td>
+                                                        <td><span class="badge badge-success">Active</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>22CSC03</strong></td>
+                                                        <td>Full Stack Web Development</td>
+                                                        <td>3</td>
+                                                        <td class="text-success">96%</td>
+                                                        <td><span class="badge badge-success">Active</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>22CSC04</strong></td>
+                                                        <td>Artificial Intelligence & ML</td>
+                                                        <td>4</td>
+                                                        <td class="text-warning">74%</td>
+                                                        <td><span class="badge badge-warning">Caution</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>22CSC05</strong></td>
+                                                        <td>Cloud Computing Solutions</td>
+                                                        <td>3</td>
+                                                        <td class="text-success">88%</td>
+                                                        <td><span class="badge badge-success">Active</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Circular Progress / Tasks & Assignments -->
+                                <div class="dashboard-widget">
+                                    <div class="widget-header">
+                                        <h3 class="widget-title">Pending Tasks & Submissions</h3>
+                                    </div>
+                                    <div class="widget-body">
+                                        <ul class="task-list">
+                                            <li class="task-item">
+                                                <div class="task-info">
+                                                    <span class="task-name">Web Programming Lab 7 (Full Stack API)</span>
+                                                    <span class="task-due text-danger">Due: Today, 11:59 PM</span>
+                                                </div>
+                                                <button class="btn btn-outline btn-xs" onclick="app.actionSimulator('submit-assignment')">Submit</button>
+                                            </li>
+                                            <li class="task-item">
+                                                <div class="task-info">
+                                                    <span class="task-name">AI & ML Research Paper Critique</span>
+                                                    <span class="task-due text-warning">Due: June 22, 2026</span>
+                                                </div>
+                                                <button class="btn btn-outline btn-xs" onclick="app.actionSimulator('submit-assignment')">Submit</button>
+                                            </li>
+                                            <li class="task-item">
+                                                <div class="task-info">
+                                                    <span class="task-name">Algorithms Internal Assessment III</span>
+                                                    <span class="task-due text-muted">Date: June 25, 2026</span>
+                                                </div>
+                                                <span class="badge badge-info">Exam</span>
+                                            </li>
+                                        </ul>
+                                        <div class="divider"></div>
+                                        <!-- Library Reservation Simulator -->
+                                        <div class="library-widget">
+                                            <h4 class="subwidget-title">Digital Library Quick Reserve</h4>
+                                            <div class="inline-form">
+                                                <input type="text" id="lib-reserve-input" placeholder="Search book title (e.g. Algorithms)..." class="input-sm flex-grow">
+                                                <button class="btn btn-primary btn-sm" id="btn-lib-reserve">Reserve</button>
+                                            </div>
+                                            <p class="helper-text">Reserved books must be picked up from GRD Library within 24 hours.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2. FACULTY VIEW PANEL -->
+                        <div id="panel-faculty" class="role-panel">
+                            <!-- Metrics Cards -->
+                            <div class="metrics-grid">
+                                <div class="metric-card">
+                                    <div class="metric-icon val-classes">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="metric-details">
+                                        <span class="metric-title">Today's Lectures</span>
+                                        <h3 class="metric-value">3 Classes</h3>
+                                        <span class="metric-trend text-primary">Next: Room 402 @ 1:30 PM</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon val-publications">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="metric-details">
+                                        <span class="metric-title">Research Projects</span>
+                                        <h3 class="metric-value">4 Active</h3>
+                                        <span class="metric-trend text-success">✓ 1 Patent Pending</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon val-advisee">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="metric-details">
+                                        <span class="metric-title">Assigned Advisees</span>
+                                        <h3 class="metric-value">22 Students</h3>
+                                        <span class="metric-trend text-info">Meeting: Friday 3:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard-grid-two">
+                                <!-- Attendance Marking Simulator -->
+                                <div class="dashboard-widget">
+                                    <div class="widget-header">
+                                        <h3 class="widget-title">Mark Student Attendance</h3>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="inline-form mb-md">
+                                            <select id="attendance-class-select" class="flex-grow select-sm">
+                                                <option>III B.Sc CS (Sec A) - Full Stack Dev</option>
+                                                <option>III B.Sc CS (Sec B) - Algorithms</option>
+                                                <option>I M.Sc CS - Advanced Data Structures</option>
+                                            </select>
+                                            <button class="btn btn-primary btn-sm" id="btn-load-students">Load Roster</button>
+                                        </div>
+                                        <div class="table-container max-h-300">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Roll No</th>
+                                                        <th>Student Name</th>
+                                                        <th>Attendance Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="attendance-roster-body">
+                                                    <!-- Seeded automatically in app.js -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="widget-actions mt-md text-right">
+                                            <button class="btn btn-success btn-sm" id="btn-save-attendance">Submit Attendance Sheet</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Grades Updation Simulator & Publications -->
+                                <div class="dashboard-widget">
+                                    <div class="widget-header">
+                                        <h3 class="widget-title">Grade Internal Assessments</h3>
+                                    </div>
+                                    <div class="widget-body">
+                                        <form id="form-faculty-grade" onsubmit="event.preventDefault();">
+                                            <div class="form-group">
+                                                <label for="grade-student-select">Select Student</label>
+                                                <select id="grade-student-select" class="form-control">
+                                                    <option value="22BCS045">Sanjay Kumar R (22BCS045)</option>
+                                                    <option value="22BCS003">Ananya Sen (22BCS003)</option>
+                                                    <option value="22BCS012">Dinesh K (22BCS012)</option>
+                                                    <option value="22BCS033">Pooja M (22BCS033)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-grid-two">
+                                                <div class="form-group">
+                                                    <label for="grade-course-select">Course Code</label>
+                                                    <select id="grade-course-select" class="form-control">
+                                                        <option value="22CSC03">Full Stack Dev</option>
+                                                        <option value="22CSC02">Algorithms</option>
+                                                        <option value="22CSC01">Data Structures</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="grade-score">Marks (Max 100)</label>
+                                                    <input type="number" id="grade-score" min="0" max="100" class="form-control" placeholder="e.g. 88">
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary btn-full mt-sm" id="btn-update-grade">Save & Publish Marks</button>
+                                        </form>
+                                        <div class="divider"></div>
+                                        <div class="publication-manager">
+                                            <h4 class="subwidget-title">Publish Announcement to Students</h4>
+                                            <textarea id="announcement-text" class="form-control text-area-sm" placeholder="Write message to your classes..."></textarea>
+                                            <button class="btn btn-outline btn-sm mt-xs float-right" id="btn-post-announcement">Broadcast</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 3. ADMINISTRATOR VIEW PANEL -->
+                        <div id="panel-admin" class="role-panel">
+                            <!-- Metrics Cards -->
+                            <div class="metrics-grid">
+                                <div class="metric-card">
+                                    <div class="metric-icon val-students">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="metric-details">
+                                        <span class="metric-title">Total Active Enrollments</span>
+                                        <h3 class="metric-value" id="admin-stat-students">10,482</h3>
+                                        <span class="metric-trend text-success">▲ +4.2% from last term</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon val-staff">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="metric-details">
+                                        <span class="metric-title">Active Faculty Members</span>
+                                        <h3 class="metric-value">482 Members</h3>
+                                        <span class="metric-trend text-primary">Student/Faculty ratio: 21:1</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon val-utilization">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="metric-details">
+                                        <span class="metric-title">Total Infrastructure Slots booked</span>
+                                        <h3 class="metric-value">84%</h3>
+                                        <span class="metric-trend text-warning">Peak hours (10 AM - 1 PM)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard-grid-two">
+                                <!-- Facility Booking Management -->
+                                <div class="dashboard-widget">
+                                    <div class="widget-header">
+                                        <h3 class="widget-title">Facility Allocation & Status</h3>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="table-container">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Facility Name</th>
+                                                        <th>Status</th>
+                                                        <th>Booking Details</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="admin-facilities-table">
+                                                    <!-- Seeded in app.js -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Add Student/Faculty Form & System Operations -->
+                                <div class="dashboard-widget">
+                                    <div class="widget-header">
+                                        <h3 class="widget-title">Register New User Profile</h3>
+                                    </div>
+                                    <div class="widget-body">
+                                        <form id="form-register-user" onsubmit="event.preventDefault();">
+                                            <div class="form-group">
+                                                <label for="reg-name">Full Name</label>
+                                                <input type="text" id="reg-name" class="form-control" placeholder="e.g. Dr. Ramesh Kumar" required>
+                                            </div>
+                                            <div class="form-grid-two">
+                                                <div class="form-group">
+                                                    <label for="reg-role">System Role</label>
+                                                    <select id="reg-role" class="form-control">
+                                                        <option value="student">Student</option>
+                                                        <option value="faculty">Faculty</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="reg-dept">Department</label>
+                                                    <select id="reg-dept" class="form-control">
+                                                        <option value="Computer Science">Computer Science</option>
+                                                        <option value="Biotechnology">Biotechnology</option>
+                                                        <option value="Commerce">Commerce</option>
+                                                        <option value="Arts & Literature">Arts & Literature</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary btn-full mt-sm" id="btn-register-user">Add User & Dispatch Credentials</button>
+                                        </form>
+                                        <div class="divider"></div>
+                                        <div class="system-logs-box">
+                                            <h4 class="subwidget-title">Live System Security Logs</h4>
+                                            <div class="log-output-container" id="admin-log-output">
+                                                <div class="log-line"><span>[11:50:11]</span> Database synced with central cloud storage.</div>
+                                                <div class="log-line"><span>[11:51:32]</span> Backup scheduled: 120GB compiled.</div>
+                                                <div class="log-line"><span>[11:52:05]</span> Admin authorized new faculty registration.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer Area -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-block">
+                <div class="footer-brand">
+                    <span class="foot-title">PSG College of Arts & Science</span>
+                    <p class="foot-tagline">Since 1947, fostering intellectual breakthroughs under "Knowledge, Love and Work".</p>
+                </div>
+                <div class="contact-details">
+                    <p>📍 Avinashi Road, Civil Aerodrome Post, Coimbatore, Tamil Nadu 641014</p>
+                    <p>📞 +91 422 4303300 | 📧 principal@psgcas.ac.in</p>
+                </div>
+            </div>
+            
+            <div class="footer-block quick-links-block">
+                <h4 class="footer-header">Quick Access</h4>
+                <div class="footer-links">
+                    <a href="#hero">Campus Home</a>
+                    <a href="#why-join">Why Choose Us</a>
+                    <a href="#infrastructure">Infrastructure</a>
+                    <a href="#faculty">Faculty Roster</a>
+                </div>
+            </div>
+            <div class="footer-block accred-block">
+                <h4 class="footer-header">Accreditations</h4>
+                <p>🏆 NIRF Ranking 2024: 11th Rank in India</p>
+                <p>⭐️ NAAC A++ Grade Autonomous Institution</p>
+                <p>⚙️ Affiliated to Bharathiar University</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PSG College of Arts & Science Portal. Developed for Academic Demonstrations.</p>
+        </div>
+    </footer>
+    <!-- Faculty Member Biography Modal (Shared UI Component) -->
+    <div class="modal-overlay" id="faculty-modal">
+        <div class="modal-container glassmorphic-card">
+            <button class="modal-close-btn" id="btn-close-modal">&times;</button>
+            <div class="modal-content" id="faculty-modal-body">
+                <!-- Injected dynamically in app.js -->
+            </div>
+        </div>
+    </div>
+    <!-- Core App JS -->
+    <script src="app.js"></script>
+</body>
+</html>
